@@ -1,0 +1,101 @@
+------------------------------------------------------------------
+    1. MENU AWAL
+
+    ===== SELAMAT DATANG DI MINIMARKET ======
+    [1] Kelola Barang
+    [2] Beli Barang
+    [3] Keluar
+    =========================================
+    Masukan Pilihan : (input)
+
+
+
+    ------------------------------------------------------------------
+    # Pilihan [1] kelola barang
+        --------------------------------------------------------------
+        - Jika belum login
+
+        ===== LOGIN =====
+        Username : (input)
+        Password : (input)
+        --------------------------------------------------------------
+
+
+        --------------------------------------------------------------
+        - jika sudah login
+
+        ===== KELOLA BARANG =====
+        [1] Tambah Barang
+        [2] Edit Barang
+        [3] Hapus Barang
+        [4] Kembali ke Menu Utama
+        =========================
+        Masukan Pilihan : (input)
+        --------------------------------------------------------------
+
+
+            --------------------------------------------------------------
+            # pilihan [1] tambah barang
+            ===== TAMBAH BARANG =====
+            id : (input)
+            nama : (input)
+            stok : (input)
+            harga : (input)
+            --------------------------------------------------------------
+
+
+            --------------------------------------------------------------
+            # pilihan [2] edit barang
+            *** disini tampil seluruh barang yang tersedia
+            ===== EDIT BARANG =====
+            id : (input)
+            --------------------------------------------------------------
+
+
+                --------------------------------------------------------------
+                # jika barang yang hendak di edit ada
+                ===== EDIT BARANG =====
+                nama *nilai_sebelumnya : (input)
+                stok *nilai_sebelumnya : (input)
+                harga *nilai_sebelumnya : (input)
+                --------------------------------------------------------------
+
+
+            --------------------------------------------------------------
+            # pilihan [3] hapus barang
+            *** disini tampil seluruh barang yang tersedia
+            ===== EDIT BARANG =====
+            id : (input)
+            --------------------------------------------------------------
+    ------------------------------------------------------------------
+
+
+
+    ------------------------------------------------------------------
+    # pilihan [2] Beli barang
+    *** barang yang sudah dipilih
+    ====== BELI BARANG ======
+    [1] Pilih Barang
+    [2] Checkout
+    [3] Kembali
+    =========================
+
+
+        --------------------------------------------------------------
+        # pilihan [1] Pilih barang
+        *** disini tampil seluruh barang yang tersedia
+        ===== Pilih BARANG =====
+        id : (input)
+        jumlah : (input)
+        --------------------------------------------------------------
+
+
+        --------------------------------------------------------------
+        # pilihan [2] Checkout
+        ===== Checkout =====
+        *** barang yang dipilih
+        *** total uang yang harus dibayar
+        jumlah bayar : (input)
+        --------------------------------------------------------------
+    ------------------------------------------------------------------
+------------------------------------------------------------------
