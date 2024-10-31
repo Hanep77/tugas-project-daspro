@@ -1,117 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
+#include "barang.h"
+#include "user.h"
+#include "views.h"
 
-typedef struct {
-  int id;
-  int stock;
-  int price;
-  char name[50];
-} Barang;
-
-typedef struct {
-  int id;
-  char username[50];
-  char password[50];
-} User;
-
-int addItem(Barang items[], int itemsLength);
-void showItem(Barang items[], int itemsLength);
-void mainMenu(Barang items[], int itemsLength, bool isAuthenticated);
-int manageItemsMenu();
-int login();
+void seedItems(Barang* items);
+void seedUsers(User* users);
 
 int main() {
-  Barang* items;
-  items = (Barang*)malloc(50 * sizeof(Barang));
-  int itemsLength = sizeof(items) / sizeof(items[0]);
-  bool isAuthenticated = true;
+  // variable declaration
+  Barang* items = (Barang*)malloc(50 * sizeof(Barang));
+  User* users = (User*)malloc(50 * sizeof(User));
 
-  mainMenu(items, itemsLength, isAuthenticated);
+  // seed
+  seedItems(items);
+  seedUsers(users);
+
+  // length of variables
+  int itemsLength = sizeof(items) / sizeof(items[0]); // Sesuaikan panjang array sesuai jumlah data yang diisi oleh seedItems
+  int usersLength = sizeof(users) / sizeof(users[0]); // Sesuaikan panjang array sesuai jumlah data yang diisi oleh seedUsers
+
+  mainMenu(items, itemsLength);
+
+  // Free memory
+  free(items);
+  free(users);
 
   return 0;
 }
 
-// views
-void mainMenu(Barang items[], int itemsLength, bool isAuthenticated) {
-  while (1) {
-    system("clear");
-    int choose;
-    printf("===== SELAMAT DATANG DI MINIMARKET =====\n");
-    printf("[1] Kelola Barang\n");
-    printf("[2] Beli Barang\n");
-    printf("[3] Keluar\n");
-    printf("========================================\n");
-    printf("Masukan Pilihan : ");
-    scanf("%d", &choose);
+void seedItems(Barang* newItems) {
+  newItems[0].id = 1;
+  strcpy(newItems[0].name, "rinso");
+  newItems[0].stock = 10;
+  newItems[0].price = 5000;
 
-    if (choose == 1) {
-      if (isAuthenticated) {
-        int pilihan = manageItemsMenu();
-        if (pilihan == 1) {
-          addItem(items, itemsLength);
-        } else if (pilihan == 4) {
-          continue;
-        }
-      } else {
-        login();
-      }
-    } else {
-      break;
-    } 
-  }
+  newItems[1].id = 2;
+  strcpy(newItems[1].name, "sabun");
+  newItems[1].stock = 10;
+  newItems[1].price = 3000;
+
+  newItems[2].id = 3;
+  strcpy(newItems[2].name, "soklin");
+  newItems[2].stock = 20;
+  newItems[2].price = 15000;
 }
 
-int manageItemsMenu() {
-  system("clear");
-  int choose;
-  printf("===== KELOLA BARANG =====\n");
-  printf("[1] Tambah Barang\n");
-  printf("[2] Edit Barang\n");
-  printf("[3] Hapus Barang\n");
-  printf("[4] Kembali ke Menu Utama\n");
-  printf("=========================\n");
-  printf("Masukan Pilihan : ");
-  scanf("%d", &choose);
-  return choose;
-}
-
-int login() {
-  system("clear");
-  char username[50];
-  char password[50];
-
-  printf("===== LOGIN =====\n");
-  printf("Username : ");
-  fgets(username, sizeof(username), stdin);
-  printf("Password : ");
-  fgets(password, sizeof(password), stdin);
-}
-
-// fungsi-fungsi barang
-void showItem(Barang items[], int itemsLength) {
-  for (int i = 0; i < itemsLength; i++) {
-    printf("id : %d", items[i].id);
-    printf("nama : %s", items[i].name);
-    printf("stok: %d", items[i].stock);
-    printf("harga : %d", items[i].price);
-  }
-}
-
-int addItem(Barang items[], int itemsLength) {
-  Barang newItem;
-  if (itemsLength == 0) {
-    newItem.id = 1;
-  } else {
-    newItem.id = items[itemsLength - 1].id;
-  }
-
-  printf("masukan nama : ");
-  fgets(newItem.name, sizeof(newItem.name), stdin);
-  printf("masukan jumlah stok : ");
-  scanf("%d", &newItem.stock);
-  printf("masukan harga barang : ");
-  scanf("%d", &newItem.price);
-
-  return itemsLength + 1;
+void seedUsers(User* users) {
+  users[0].id = 1;
+  strcpy(users[0].username, "soklin");
+  strcpy(users[0].password, "rahasia");
 }

@@ -1,0 +1,10 @@
+1. [x] - membuat utama
+2. [x] - membuat menu kelola barang
+3. [x] - membuat fitur tambah barang
+4. [ ] - membuat fitur edit barang
+5. [ ] - membuat fitur hapus barang
+6. [ ] - membuat fitur tampilkan barang
+7. [ ] - membuat fitur login admin
+8. [ ] - membuat menu beli barang
+9. [ ] - membuat fitur pilih barang
+9. [ ] - membuat fitur checkout barang
